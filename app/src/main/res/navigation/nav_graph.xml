@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.fhd.navigationcomponent.FirstFragment"
+        android:label="fragment_first"
+        tools:layout="@layout/fragment_first" />
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="com.fhd.navigationcomponent.SecondFragment"
+        android:label="fragment_second"
+        tools:layout="@layout/fragment_second" >
+        <action
+            android:id="@+id/action_secondFragment_to_fourthFragment"
+            app:destination="@id/fourthFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.fhd.navigationcomponent.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" />
+    <fragment
+        android:id="@+id/fourthFragment"
+        android:name="com.fhd.navigationcomponent.FourthFragment"
+        android:label="fragment_fourth"
+        tools:layout="@layout/fragment_fourth" >
+        <argument android:name="recipient"
+            android:defaultValue="None"/>
+
+        <action
+            android:id="@+id/action_fourthFragment_to_fifthFragment"
+            app:destination="@id/fifthFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/fifthFragment"
+        android:name="com.fhd.navigationcomponent.FifthFragment"
+        android:label="fragment_fifth"
+        tools:layout="@layout/fragment_fifth"
+
+        >
+
+        <argument android:name="recipient"
+            android:defaultValue="None"/>
+
+        <argument android:name="amount"
+            app:argType="com.fhd.navigationcomponent.Money"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.fhd.navigationcomponent.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_firstFragment"
+            app:destination="@id/firstFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+        <action
+            android:id="@+id/action_mainFragment_to_secondFragment"
+            app:destination="@id/secondFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_mainFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+</navigation>
